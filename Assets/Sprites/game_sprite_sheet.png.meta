@@ -443,6 +443,12 @@ TextureImporter:
   - first:
       213: -5963162590136052648
     second: delete_
+  - first:
+      213: -3134070217389587995
+    second: space
+  - first:
+      213: -657667846541559786
+    second: space_
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -3112,12 +3118,12 @@ TextureImporter:
       name: quest_
       rect:
         serializedVersion: 2
-        x: 120
+        x: 119
         y: 49
-        width: 3
+        width: 5
         height: 7
       alignment: 9
-      pivot: {x: 0, y: 0.14285715}
+      pivot: {x: 0.2, y: 0.14285715}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3650,6 +3656,48 @@ TextureImporter:
       bones: []
       spriteID: 854da0de7379e3da0800000000000000
       internalID: -5963162590136052648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 63
+        width: 2
+        height: 5
+      alignment: 9
+      pivot: {x: 0, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1cc570ebb8184d0800000000000000
+      internalID: -3134070217389587995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space_
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 49
+        width: 4
+        height: 7
+      alignment: 9
+      pivot: {x: 0.25, y: 0.14285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618b1baf39e7fd6f0800000000000000
+      internalID: -657667846541559786
       vertices: []
       indices: 
       edges: []
