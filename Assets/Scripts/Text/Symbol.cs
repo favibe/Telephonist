@@ -8,5 +8,6 @@ namespace Text
     {
         public char ID;
         public Sprite Letter;
+        public Sprite SelectedLetter;
     }
 }
