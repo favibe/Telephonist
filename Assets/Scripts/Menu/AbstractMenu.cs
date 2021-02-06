@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -46,6 +47,16 @@ namespace Menu
             {
                 this.CurrentState.InvokeState();
             }
+        }
+
+        protected void LoadLevel(int i)
+        {
+            //TODO: finish it
+        }
+
+        protected void ReturnToMain()
+        {
+            SceneManager.LoadScene(3);
         }
 
         protected void ExitGame()
