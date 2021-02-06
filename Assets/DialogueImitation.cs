@@ -13,6 +13,8 @@ public class DialogueImitation : MonoBehaviour
         display.TypingMessage("I'm little bit nervous about yesterday...", MessageType.Incoming);
         display.AddPause(3);
         display.TypingMessage("Call me, please!", MessageType.Incoming);
+        display.AddPause(1);
+        display.TypingMessage("You have to stop!", MessageType.Outgoing);
     }
 
     // Update is called once per frame
