@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Text;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,8 @@ namespace Game
     {
         public UnityEvent<char> SymbolEntered;
         public UnityEvent<char> SymbolSelected;
+        public UnityEvent SymbolBackspaced;
+        public UnityEvent HideSelected;
         private GameInput()
         {
             _inputCodes = new Dictionary<KeyCode, char[]>()
@@ -25,6 +28,8 @@ namespace Game
                 [KeyCode.Alpha8] = new char[] { 'T', 'U', 'V', 'W' },
                 [KeyCode.Alpha9] = new char[] { 'X', 'Y', 'Z' }
             };
+
+            _sb = new StringBuilder();
         }
 
         private void Update()
@@ -36,6 +41,25 @@ namespace Game
                     KeyPressed(key);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.Backspace) && _sb.Length > 0)
+            {
+
+                if (_currentTime > 0)
+                {
+                    HideSelected.Invoke();
+                    _currentTime = 0;
+                    _lastKey = null;
+                    return;
+                }
+
+                _currentTime = 0;
+                _lastKey = null;
+
+                _sb.Length--;
+                SymbolBackspaced.Invoke();
+                HideSelected.Invoke();
+            }
         }
 
         private void FixedUpdate()
@@ -46,9 +70,14 @@ namespace Game
 
                 if (_currentTime <= 0)
                 {
+                    if (_lastKey.HasValue)
+                    {
+                        var symbol = _inputCodes[_lastKey.Value][_curIndex];
+                        _sb.Append(symbol);
 
-                    SymbolEntered.Invoke(_inputCodes[_lastKey.Value][_curIndex]);
-
+                        SymbolEntered.Invoke(symbol);
+                        HideSelected.Invoke();
+                    }
                     _currentTime = 0;
                     _curIndex = 0;
                     _lastKey = null;
@@ -69,7 +98,11 @@ namespace Game
                 }
                 else
                 {
-                    SymbolEntered.Invoke(_inputCodes[_lastKey.Value][_curIndex]);
+                    var symbol = _inputCodes[_lastKey.Value][_curIndex];
+                    _sb.Append(symbol);
+
+                    SymbolEntered.Invoke(symbol);
+                    HideSelected.Invoke();
 
                     _curIndex = 0;
                     _lastKey = key;
@@ -85,19 +118,7 @@ namespace Game
             SymbolSelected.Invoke(_inputCodes[key][_curIndex]);
         }
 
-        public void DebugSelected(char symbol)
-        {
-            Debug.Log($"Selected symbol: {symbol}");
-        }
 
-        public void DebugEntered(char symbol)
-        {
-            Debug.Log($"Entered symbol: {symbol}");
-        }
-
-        [Header("Game components")]
-        [SerializeField]
-        private Printer _printer;
         [Header("Parameters")]
         [SerializeField]
         private float _timeInterval;
@@ -108,7 +129,8 @@ namespace Game
         private int _curIndex;
 
         private KeyCode? _lastKey;
-        private readonly Dictionary<KeyCode, char[]> _inputCodes;
 
+        private readonly Dictionary<KeyCode, char[]> _inputCodes;
+        private readonly StringBuilder _sb;
     }
 }
