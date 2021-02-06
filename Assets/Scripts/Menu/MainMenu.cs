@@ -1,5 +1,6 @@
 ﻿using SpriteTexts;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,8 @@ namespace Menu
 
         public void StartNewGame()
         {
-            //TODO animation of starting
+            this._newGameStarts = StartCoroutine(this.NewGameStarts());
+
         }
 
         public void ShowLevels()
@@ -32,6 +34,24 @@ namespace Menu
             //TODO maybe it's unnecessary
         }
 
+        private IEnumerator NewGameStarts()
+        {
+            this._phoneInvisibleMaker.SetTrigger("NewGameStarts");
+            while (!this._phoneInvisibleMaker.GetCurrentAnimatorStateInfo(0).IsName("PhoneInvisible"))
+                yield return null;
+            this._introText.ActivateIntro();
+            while (!Input.GetKeyDown(this._skipIntro))
+                yield return null;
 
+            StopCoroutine(this._newGameStarts);
+            this.LoadLevel(0);
+            yield break;
+        }
+
+        private Coroutine _newGameStarts;
+
+        [SerializeField] private KeyCode _skipIntro = KeyCode.Keypad5;
+        [SerializeField] private IntroText _introText;
+        [SerializeField] private Animator _phoneInvisibleMaker;
     }
 }

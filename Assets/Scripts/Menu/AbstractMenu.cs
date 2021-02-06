@@ -51,7 +51,7 @@ namespace Menu
 
         protected void LoadLevel(int i)
         {
-            //TODO: finish it
+            SceneManager.LoadScene(3);
         }
 
         protected void ReturnToMain()
