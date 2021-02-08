@@ -16,6 +16,16 @@ public class Battery : MonoBehaviour
         }
     }
 
+    public float ChargeLossSpeed
+    {
+        get => _chargeLossSpeed;
+        set
+        {
+            _chargeLossSpeed = value;
+            RestartTimer();
+        }
+    }
+
     public int CurrentCharge
     {
         get => _curCharge;
