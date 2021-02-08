@@ -123,6 +123,134 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3089514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3089516}
+  - component: {fileID: 3089515}
+  - component: {fileID: 3089517}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &3089515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7942ad0409253e4fbe869a08f1856dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextWord:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007334320}
+        m_TargetAssemblyTypeName: Game.Typing, Assembly-CSharp
+        m_MethodName: SetExample
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SentenceComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3089517}
+        m_TargetAssemblyTypeName: Game.GameController, Assembly-CSharp
+        m_MethodName: OnSentenceFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SpaceAdded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1007334320}
+        m_TargetAssemblyTypeName: Game.Typing, Assembly-CSharp
+        m_MethodName: AddSpace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 254389740}
+        m_TargetAssemblyTypeName: Game.GameInput, Assembly-CSharp
+        m_MethodName: AddSpace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ' '
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &3089516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3089517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59593167f02f2a843be655fd2707c484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SentenceChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3089515}
+        m_TargetAssemblyTypeName: Game.OutgoingMessagingController, Assembly-CSharp
+        m_MethodName: SetNextSentence
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &46669533
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +471,7 @@ GameObject:
   - component: {fileID: 254389741}
   - component: {fileID: 254389740}
   m_Layer: 0
-  m_Name: Input
+  m_Name: GameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,6 +495,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1007334320}
         m_TargetAssemblyTypeName: Game.Typing, Assembly-CSharp
         m_MethodName: AddConst
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3089515}
+        m_TargetAssemblyTypeName: Game.GameController, Assembly-CSharp
+        m_MethodName: OnSymbolAdded
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -409,6 +549,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1007334320}
         m_TargetAssemblyTypeName: Game.Typing, Assembly-CSharp
         m_MethodName: RemoveLast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3089515}
+        m_TargetAssemblyTypeName: Game.OutgoingMessagingController, Assembly-CSharp
+        m_MethodName: OnSymbolBackspaced
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1913,7 +2065,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506199586}
-  - component: {fileID: 1506199585}
   m_Layer: 0
   m_Name: MessageImit
   m_TagString: Untagged
@@ -1921,19 +2072,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1506199585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506199584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece25243f35a83c46a5ac71006b8ebf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  display: {fileID: 1658142928}
 --- !u!4 &1506199586
 Transform:
   m_ObjectHideFlags: 0
@@ -2576,13 +2714,25 @@ MonoBehaviour:
   _chargeRect: {fileID: 46669534}
   _maxCharge: 20
   _curCharge: 0
-  _chargeLossSpeed: 2
+  _chargeLossSpeed: 1
   ChargeChanged:
     m_PersistentCalls:
       m_Calls: []
   FullyDischarged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3089517}
+        m_TargetAssemblyTypeName: Game.GameController, Assembly-CSharp
+        m_MethodName: OnBatteryDischarged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045102425
 MonoBehaviour:
   m_ObjectHideFlags: 0

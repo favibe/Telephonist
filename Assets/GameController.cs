@@ -18,5 +18,10 @@ namespace Game
         {
             Debug.Log("Sentence finished");
         }
+
+        public void OnBatteryDischarged()
+        {
+            Debug.Log("Battery discharged");
+        }
     }
 }
