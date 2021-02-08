@@ -16,6 +16,9 @@ namespace Messaging
             _events = new Queue<MessageEvent>();
         }
 
+        public bool IsEventActive => _isEventActive;
+        public int EventsCount => _events.Count;
+
         public void AddMessage(string text, MessageType type)
         {
             AddMessageEvent messageEvent;
