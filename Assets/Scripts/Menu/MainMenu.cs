@@ -1,4 +1,5 @@
-﻿using SpriteTexts;
+﻿using Levels;
+using SpriteTexts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace Menu
         {
             this.InitializeStates(
                 new MenuState(0, "NewGame", this.StartNewGame),
-                new MenuState(1, "Levels", this.ShowLevels),
-                new MenuState(2, "Exit", this.ExitGame)
+                new MenuState(1, "Exit", this.ExitGame)
                 );
+            LevelManager.InitializeLevels(this.ReturnToMain);
         }
 
 
@@ -27,11 +28,6 @@ namespace Menu
         {
             this._newGameStarts = StartCoroutine(this.NewGameStarts());
 
-        }
-
-        public void ShowLevels()
-        {
-            //TODO maybe it's unnecessary
         }
 
         private IEnumerator NewGameStarts()
