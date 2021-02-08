@@ -14,7 +14,7 @@ namespace Levels
             _levels = new List<Level>()
             {
                 new Level(
-                    0f, onLevelEnded,
+                    0f,
                     new Thesis("Okay, let's practice!", MessageType.Incoming, 1f),
                     new Thesis("First of all, type 'abc'. Use Num2 key.", MessageType.Incoming, 1f),
                     new Thesis("If you were incorrect, use Num0 to delete last symbol.", MessageType.Incoming, 1f),
@@ -30,19 +30,21 @@ namespace Levels
                     //new Thesis("Good luck!", MessageType.Incoming, 5f)
                     )
             };
+            
+            for(int i = 0; i < _levels.Count - 1; i++)
+            {
+                _levels[i].OnSequenceEnded += onLevelEnded;
+            }
+            _levels[_levels.Count - 1].OnSequenceEnded += finalLevelEnded;
             _index = 0;
 
             _finalLevelEnded = finalLevelEnded;
         }
-
+        public static int Index => _index;
         public static Level Current => _levels[_index];
         public static void MoveNext()
         {
             _index++;
-            if(_index >= _levels.Count)
-            {
-                _finalLevelEnded?.Invoke();
-            }
 
         }
 

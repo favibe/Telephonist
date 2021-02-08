@@ -14,10 +14,9 @@ namespace Game
 
         public void Start()
         {
-            // TODO: REPLACE WITH EVENT
-
-            LevelManager.InitializeLevels(LevelComplete, () => { });
+            Debug.Log(LevelManager.Index);
             this._current = LevelManager.Current;
+            this._current.OnSequenceEnded += LevelComplete;
 
             _sentenceFinished = true;
             _battery.ChargeLossSpeed = 0;

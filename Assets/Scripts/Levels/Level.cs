@@ -18,19 +18,17 @@ namespace Levels
             this._index++;
             if(this._index >= this._theses.Length)
             {
-                this._onSequenceEnded?.Invoke();
+                this.OnSequenceEnded?.Invoke();
             }
         }
         
-        public Level(float battaryCharge, Action onLevelEnded, params Thesis[] theses)
+        public Level(float battaryCharge, params Thesis[] theses)
         {
             this.BattaryCharge = battaryCharge;
             this._theses = theses;
-            this._onSequenceEnded = onLevelEnded;
             this._index = 0;
         }
         
-        private Action _onSequenceEnded;
         private int _index;
         private readonly Thesis[] _theses;
     }
