@@ -23,6 +23,11 @@ namespace Game
             _constText.text += symbol;
         }
 
+        public void AddSpace()
+        {
+            AddConst(' ');
+        }
+
         public void SetExample(string text)
         {
             _exampleText.text = text;
