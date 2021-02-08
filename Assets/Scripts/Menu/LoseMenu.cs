@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -19,7 +20,7 @@ namespace Menu
 
         private void RetryLevel()
         {
-
+            SceneManager.LoadScene(0);
         }
     }
 }

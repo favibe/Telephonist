@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Text;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -20,14 +20,19 @@ namespace Menu
                 new MenuState(0, "NewGame", this.StartNewGame),
                 new MenuState(1, "Exit", this.ExitGame)
                 );
-            LevelManager.InitializeLevels(this.ReturnToMain);
+            LevelManager.InitializeLevels(this.WinLevel, this.ReturnToMain);
         }
 
 
-        public void StartNewGame()
+        private void StartNewGame()
         {
             this._newGameStarts = StartCoroutine(this.NewGameStarts());
 
+        }
+
+        private void WinLevel()
+        {
+            SceneManager.LoadScene(1);
         }
 
         private IEnumerator NewGameStarts()
@@ -40,7 +45,7 @@ namespace Menu
                 yield return null;
 
             StopCoroutine(this._newGameStarts);
-            this.LoadLevel(0);
+            SceneManager.LoadScene(0);
             yield break;
         }
 
