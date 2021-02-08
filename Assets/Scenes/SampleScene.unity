@@ -264,6 +264,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _messageDisplay: {fileID: 1658142928}
+  _battery: {fileID: 2045102424}
 --- !u!1 &46669533
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,8 +14,13 @@ namespace Game
 
         public void Start()
         {
-            //SentenceChanged.Invoke("Hel");
             this._current = LevelManager.Current;
+            _battery.ChargeLossSpeed = 0;
+
+            _battery.MaxCharge = 100;
+            _battery.CurrentCharge = 100;
+
+            SentenceChanged.Invoke("Hel");
         }
 
         public void OnSentenceFinished()
@@ -26,7 +31,9 @@ namespace Game
             _messageDisplay.AddMessage("b", MessageType.Outgoing);
             _messageDisplay.AddMessage("a", MessageType.Incoming);
             _messageDisplay.AddMessage("b", MessageType.Outgoing);
-
+            _battery.ChargeLossSpeed = 2;
+            _messageDisplay.AddMessage("Hello Jack!", MessageType.Outgoing);
+            _messageDisplay.AddMessage("Hi, Alex...", MessageType.Incoming);
         }
 
         public void OnBatteryDischarged()
@@ -37,5 +44,7 @@ namespace Game
         private Level _current;
         [SerializeField]
         private MessageDisplay _messageDisplay;
+        [SerializeField]
+        private Battery _battery;
     }
 }
