@@ -32,7 +32,7 @@ namespace Menu
 
         private void WinLevel()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
         private IEnumerator NewGameStarts()
@@ -45,7 +45,7 @@ namespace Menu
                 yield return null;
 
             StopCoroutine(this._newGameStarts);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
             yield break;
         }
 

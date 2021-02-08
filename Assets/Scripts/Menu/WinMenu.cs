@@ -23,7 +23,7 @@ namespace Menu
         private void StartNextLevel()
         {
             LevelManager.MoveNext();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 
 

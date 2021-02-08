@@ -20,7 +20,7 @@ namespace Menu
 
         private void RetryLevel()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

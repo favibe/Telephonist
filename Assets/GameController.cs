@@ -96,7 +96,7 @@ namespace Game
 
         public void OnBatteryDischarged()
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
 
         private bool _sentenceFinished;

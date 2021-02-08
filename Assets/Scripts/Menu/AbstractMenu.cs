@@ -51,7 +51,7 @@ namespace Menu
 
         protected void ReturnToMain()
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
         }
 
         protected void ExitGame()
