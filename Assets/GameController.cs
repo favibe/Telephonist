@@ -14,18 +14,22 @@ namespace Game
 
         public void Start()
         {
-            LevelManager.InitializeLevels(() => { });
+            // TODO: REPLACE WITH EVENT
+
+            LevelManager.InitializeLevels(LevelComplete, () => { });
             this._current = LevelManager.Current;
 
             _sentenceFinished = true;
             _battery.ChargeLossSpeed = 0;
 
-            StartCoroutine(GameThread());
+            _gameThread = StartCoroutine(GameThread());
         }
 
         private IEnumerator GameThread()
         {
-            while (true)
+            yield return null;
+
+            while (_gameThread != null)
             {
                 if (!_sentenceFinished)
                 {
@@ -41,6 +45,9 @@ namespace Game
 
                     _last = null;
                     _current.MoveNext();
+
+                    if (_current.Current == null)
+                        break;
                 }
 
                 while (_current.Current.Type != MessageType.Outgoing)
@@ -55,6 +62,9 @@ namespace Game
                     }
 
                     _current.MoveNext();
+
+                    if (_current.Current == null)
+                        break;
                 }
 
                 yield return null;
@@ -63,6 +73,10 @@ namespace Game
                 {
                     yield return null;
                 }
+
+
+                if (_current.Current == null)
+                    break;
 
                 SentenceChanged.Invoke(_current.Current.Text);
                 _sentenceFinished = false;
@@ -73,6 +87,12 @@ namespace Game
         public void OnSentenceFinished()
         {
             _sentenceFinished = true;
+        }
+
+        private void LevelComplete()
+        {
+            Debug.Log("Level complete");
+            StopCoroutine(_gameThread);
         }
 
         public void OnBatteryDischarged()
@@ -88,5 +108,7 @@ namespace Game
         private MessageDisplay _messageDisplay;
         [SerializeField]
         private Battery _battery;
+        [SerializeField]
+        private Coroutine _gameThread;
     }
 }

@@ -10,7 +10,8 @@ namespace Levels
 {
     public class Level
     {
-        public Thesis Current => this._theses?[this._index];
+        public event Action OnSequenceEnded;
+        public Thesis Current => _index > _theses.Length - 1 ? null : this._theses?[this._index];
         public float BattaryCharge { get; }
         public void MoveNext()
         {

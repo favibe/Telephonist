@@ -168,6 +168,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 254389740}
+        m_TargetAssemblyTypeName: Game.GameInput, Assembly-CSharp
+        m_MethodName: SetInputBlocked
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   SentenceComplete:
     m_PersistentCalls:
       m_Calls:
@@ -194,6 +206,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 254389740}
+        m_TargetAssemblyTypeName: Game.GameInput, Assembly-CSharp
+        m_MethodName: SetInputBlocked
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   SpaceAdded:
     m_PersistentCalls:
@@ -602,6 +626,7 @@ MonoBehaviour:
   _timeInterval: 1
   _currentTime: 0
   _curIndex: 0
+  _inputBlocked: 1
 --- !u!4 &254389741
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hello
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0a8515a34cfaeb439738eb1403a98fc, type: 2}
   m_sharedMaterial: {fileID: 16685048373275314, guid: e0a8515a34cfaeb439738eb1403a98fc, type: 2}

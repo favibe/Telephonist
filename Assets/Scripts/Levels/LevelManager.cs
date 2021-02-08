@@ -22,12 +22,12 @@ namespace Levels
                     new Thesis("Good, it's not so difficult!", MessageType.Incoming, 1f),
                     new Thesis("Now, type 'def', like 'define' but a little shorter.", MessageType.Incoming, 1f),
                     new Thesis("def", MessageType.Outgoing),
-                    new Thesis("Okay, I supose you understood how it works.", MessageType.Incoming, 1f),
-                    new Thesis("Finaly type me 'ghi jkl mno pqrs tuvw xyz'", MessageType.Incoming, 1f),
-                    new Thesis("ghi jkl mno pqrs tuvw xyz", MessageType.Outgoing),
-                    new Thesis("I think, authors of TextMe couldn't do it better!", MessageType.Incoming, 2f),
-                    new Thesis("Now, it's time to text some real messages", MessageType.Incoming, 2f),
-                    new Thesis("Good luck!", MessageType.Incoming, 5f)
+                    new Thesis("Okay, I supose you understood how it works.", MessageType.Incoming, 1f)
+                    //new Thesis("Finaly type me 'ghi jkl mno pqrs tuvw xyz'", MessageType.Incoming, 1f),
+                    //new Thesis("ghi jkl mno pqrs tuvw xyz", MessageType.Outgoing),
+                    //new Thesis("I think, authors of TextMe couldn't do it better!", MessageType.Incoming, 2f),
+                    //new Thesis("Now, it's time to text some real messages", MessageType.Incoming, 2f),
+                    //new Thesis("Good luck!", MessageType.Incoming, 5f)
                     )
             };
             _index = 0;

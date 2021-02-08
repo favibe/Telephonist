@@ -14,6 +14,13 @@ namespace Game
         public UnityEvent<char> SymbolSelected;
         public UnityEvent SymbolBackspaced;
         public UnityEvent HideSelected;
+
+        public bool InputBlocked
+        {
+            get => _inputBlocked;
+            set => _inputBlocked = value;
+        }
+
         private GameInput()
         {
             _inputCodes = new Dictionary<KeyCode, char[]>()
@@ -51,8 +58,16 @@ namespace Game
             _sb.Append(' ');
         }
 
+        public void SetInputBlocked(bool value)
+        {
+            _inputBlocked = value;
+        }
+
         private void Update()
         {
+            if (_inputBlocked)
+                return;
+
             foreach (KeyCode key in _inputCodes.Keys)
             {
                 if (Input.GetKeyDown(key))
@@ -148,6 +163,8 @@ namespace Game
         private float _currentTime;
         [SerializeField]
         private int _curIndex;
+        [SerializeField]
+        private bool _inputBlocked;
 
         private KeyCode? _lastKey;
 
