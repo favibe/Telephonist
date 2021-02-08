@@ -18,7 +18,7 @@ namespace Game
         {
             _inputCodes = new Dictionary<KeyCode, char[]>()
             {
-                [KeyCode.Alpha1] = new char[] { ' ', '.', '?', '!', '(', ')' },
+                [KeyCode.Alpha1] = new char[] { '.', '?', '!', '(', ')' },
                 [KeyCode.Alpha2] = new char[] { 'A', 'B', 'C' },
                 [KeyCode.Alpha3] = new char[] { 'D', 'E', 'F' },
                 [KeyCode.Alpha4] = new char[] { 'G', 'H', 'I' },
@@ -32,6 +32,16 @@ namespace Game
             _sb = new StringBuilder();
         }
 
+        public void AddString(string str)
+        {
+            _sb.Append(str);
+        }
+
+        public void AddSpace()
+        {
+            _sb.Append(' ');
+        }
+
         private void Update()
         {
             foreach (KeyCode key in _inputCodes.Keys)
@@ -42,9 +52,8 @@ namespace Game
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Backspace) && _sb.Length > 0)
+            if (Input.GetKeyDown(KeyCode.Alpha0))
             {
-
                 if (_currentTime > 0)
                 {
                     HideSelected.Invoke();
@@ -53,12 +62,15 @@ namespace Game
                     return;
                 }
 
-                _currentTime = 0;
-                _lastKey = null;
+                if (_sb.Length > 0 && _sb[_sb.Length-1] != ' ')
+                {
+                    _currentTime = 0;
+                    _lastKey = null;
 
-                _sb.Length--;
-                SymbolBackspaced.Invoke();
-                HideSelected.Invoke();
+                    _sb.Length--;
+                    SymbolBackspaced.Invoke();
+                    HideSelected.Invoke();
+                }
             }
         }
 
