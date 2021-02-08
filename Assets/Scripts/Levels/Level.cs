@@ -16,10 +16,16 @@ namespace Levels
         public void MoveNext()
         {
             this._index++;
-            if(this._index >= this._theses.Length)
-            {
-                this.OnSequenceEnded?.Invoke();
-            }
+        }
+
+        public void OnLevelEnded()
+        {
+            this.OnSequenceEnded?.Invoke();
+        }
+        
+        public void Restart()
+        {
+            _index = 0;
         }
         
         public Level(float battaryCharge, params Thesis[] theses)

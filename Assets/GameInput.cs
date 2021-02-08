@@ -25,7 +25,7 @@ namespace Game
         {
             _inputCodes = new Dictionary<KeyCode, char[]>()
             {
-                [KeyCode.Alpha1] = new char[] { '.', '?', '!', '(', ')', '`' },
+                [KeyCode.Alpha1] = new char[] { '.', '?', '!', '(', ')', '\'', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' },
                 [KeyCode.Alpha2] = new char[] { 'A', 'B', 'C' },
                 [KeyCode.Alpha3] = new char[] { 'D', 'E', 'F' },
                 [KeyCode.Alpha4] = new char[] { 'G', 'H', 'I' },
@@ -34,7 +34,7 @@ namespace Game
                 [KeyCode.Alpha7] = new char[] { 'P', 'Q', 'R', 'S' },
                 [KeyCode.Alpha8] = new char[] { 'T', 'U', 'V', 'W' },
                 [KeyCode.Alpha9] = new char[] { 'X', 'Y', 'Z' },
-                [KeyCode.Keypad1] = new char[] { '.', '?', '!', '(', ')', '`' },
+                [KeyCode.Keypad1] = new char[] { '.', '?', '!', '(', ')', '\'', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' },
                 [KeyCode.Keypad2] = new char[] { 'A', 'B', 'C' },
                 [KeyCode.Keypad3] = new char[] { 'D', 'E', 'F' },
                 [KeyCode.Keypad4] = new char[] { 'G', 'H', 'I' },

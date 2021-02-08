@@ -14,12 +14,21 @@ namespace Game
 
         public void Start()
         {
-            Debug.Log(LevelManager.Index);
             this._current = LevelManager.Current;
-            this._current.OnSequenceEnded += LevelComplete;
+            _current.Restart();
+            //this._current.OnSequenceEnded += LevelComplete;
 
             _sentenceFinished = true;
-            _battery.ChargeLossSpeed = 0;
+
+            if (_current.BattaryCharge == 0)
+            {
+                _battery.ChargeLossSpeed = 0;
+            }
+            else
+            {
+                _battery.ChargeLossSpeed = 1;
+                _battery.MaxCharge = (int)_current.BattaryCharge;
+            }
 
             _gameThread = StartCoroutine(GameThread());
         }
@@ -46,7 +55,10 @@ namespace Game
                     _current.MoveNext();
 
                     if (_current.Current == null)
+                    {
+                        StartCoroutine(LevelComplete());
                         break;
+                    }
                 }
 
                 while (_current.Current.Type != MessageType.Outgoing)
@@ -63,7 +75,10 @@ namespace Game
                     _current.MoveNext();
 
                     if (_current.Current == null)
+                    {
+                        StartCoroutine(LevelComplete());
                         break;
+                    }
                 }
 
                 yield return null;
@@ -75,7 +90,10 @@ namespace Game
 
 
                 if (_current.Current == null)
+                {
+                    StartCoroutine(LevelComplete());
                     break;
+                }
 
                 SentenceChanged.Invoke(_current.Current.Text);
                 _sentenceFinished = false;
@@ -88,10 +106,16 @@ namespace Game
             _sentenceFinished = true;
         }
 
-        private void LevelComplete()
+
+        private IEnumerator LevelComplete()
         {
-            Debug.Log("Level complete");
+            while (_messageDisplay.IsEventActive || _messageDisplay.EventsCount > 0)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
             StopCoroutine(_gameThread);
+            _current.OnLevelEnded();
         }
 
         public void OnBatteryDischarged()
