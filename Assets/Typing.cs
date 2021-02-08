@@ -45,7 +45,10 @@ namespace Game
         {
             _tempSymbol.text = string.Empty;
             _constText.text = string.Empty;
+            _exampleText.text = string.Empty;
             SetTemporaryPanelActive(false);
+
+            Debug.Log("Typing cleaned");
         }
 
         [SerializeField]
