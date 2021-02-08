@@ -14,32 +14,74 @@ namespace Game
 
         public void Start()
         {
+            LevelManager.InitializeLevels(() => { });
             this._current = LevelManager.Current;
+
+            _sentenceFinished = true;
             _battery.ChargeLossSpeed = 0;
 
-            _battery.MaxCharge = 100;
-            _battery.CurrentCharge = 100;
+            StartCoroutine(GameThread());
+        }
 
-            SentenceChanged.Invoke("Hel");
+        private IEnumerator GameThread()
+        {
+            while (true)
+            {
+                if (!_sentenceFinished)
+                {
+                    yield return null;
+                    continue;
+                }
+                else if (_last != null)
+                {
+                    _messageDisplay.AddMessage(_last.Text, MessageType.Outgoing);
+
+                    if (_last.Pause > 0)
+                        _messageDisplay.AddPause(_last.Pause);
+
+                    _last = null;
+                    _current.MoveNext();
+                }
+
+                while (_current.Current.Type != MessageType.Outgoing)
+                {
+                    var message = _current.Current;
+
+                    _messageDisplay.AddMessage(message.Text, MessageType.Incoming);
+
+                    if (message.Pause > 0)
+                    {
+                        _messageDisplay.AddPause(message.Pause);
+                    }
+
+                    _current.MoveNext();
+                }
+
+                yield return null;
+
+                while (_messageDisplay.IsEventActive || _messageDisplay.EventsCount > 0)
+                {
+                    yield return null;
+                }
+
+                SentenceChanged.Invoke(_current.Current.Text);
+                _sentenceFinished = false;
+                _last = _current.Current;
+            }
         }
 
         public void OnSentenceFinished()
         {
-            _messageDisplay.AddMessage("a", MessageType.Incoming);
-            _messageDisplay.AddMessage("b", MessageType.Outgoing);
-            _messageDisplay.AddMessage("a", MessageType.Incoming);
-            _messageDisplay.AddMessage("b", MessageType.Outgoing);
-            _messageDisplay.AddMessage("a", MessageType.Incoming);
-            _messageDisplay.AddMessage("b", MessageType.Outgoing);
-            _battery.ChargeLossSpeed = 2;
-            _messageDisplay.AddMessage("Hello Jack!", MessageType.Outgoing);
-            _messageDisplay.AddMessage("Hi, Alex...", MessageType.Incoming);
+            _sentenceFinished = true;
         }
 
         public void OnBatteryDischarged()
         {
             SceneManager.LoadScene(2);
         }
+
+        private bool _sentenceFinished;
+        private Thesis _last;
 
         private Level _current;
         [SerializeField]
