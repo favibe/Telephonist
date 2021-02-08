@@ -14,7 +14,7 @@ namespace Game
 
         public void Start()
         {
-            LevelManager.InitializeLevels(() => { }, () => { });
+            LevelManager.InitializeLevels(() => { });
             this._current = LevelManager.Current;
 
             _sentenceFinished = true;
