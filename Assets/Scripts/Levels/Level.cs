@@ -8,35 +8,26 @@ using UnityEngine.SceneManagement;
 
 namespace Levels
 {
-    public class Level : MonoBehaviour
+    public class Level
     {
-
-        public event Action OnSequanceEnded;
+        public event Action OnSequenceEnded;
         public Thesis Current => this._theses?[this._index];
         public void MoveNext()
         {
             this._index++;
-            if(this._index > this._theses.Length)
+            if(this._index >= this._theses.Length)
             {
-                this.OnSequanceEnded?.Invoke();
+                this.OnSequenceEnded?.Invoke();
             }
         }
-        private void Awake()
+        
+        public Level(params Thesis[] theses)
         {
+            this._theses = theses;
             this._index = 0;
         }
 
-        public static Level Create(params Thesis[] theses)
-        {
-            GameObject go = new GameObject("Level");
-            Level level = go.AddComponent<Level>();
-            level._theses = theses;
-            return level;
-        }
-
-
-
         private int _index;
-        private Thesis[] _theses;
+        private readonly Thesis[] _theses;
     }
 }
