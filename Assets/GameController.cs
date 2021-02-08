@@ -1,8 +1,10 @@
+using Levels;
 using Messaging;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -12,21 +14,27 @@ namespace Game
 
         public void Start()
         {
-            SentenceChanged.Invoke("Hel");
+            //SentenceChanged.Invoke("Hel");
+            this._current = LevelManager.Current;
         }
 
         public void OnSentenceFinished()
         {
-            Debug.Log("Sentence finished");
-            _messageDisplay.AddMessage("Hello Jack!", MessageType.Outgoing);
-            _messageDisplay.AddMessage("Hi, Alex...", MessageType.Incoming);
+            _messageDisplay.AddMessage("a", MessageType.Incoming);
+            _messageDisplay.AddMessage("b", MessageType.Outgoing);
+            _messageDisplay.AddMessage("a", MessageType.Incoming);
+            _messageDisplay.AddMessage("b", MessageType.Outgoing);
+            _messageDisplay.AddMessage("a", MessageType.Incoming);
+            _messageDisplay.AddMessage("b", MessageType.Outgoing);
+
         }
 
         public void OnBatteryDischarged()
         {
-            Debug.Log("Battery discharged");
+            SceneManager.LoadScene(2);
         }
 
+        private Level _current;
         [SerializeField]
         private MessageDisplay _messageDisplay;
     }

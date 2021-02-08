@@ -12,6 +12,7 @@ namespace Levels
     {
         public event Action OnSequenceEnded;
         public Thesis Current => this._theses?[this._index];
+        public float BattaryCharge { get; }
         public void MoveNext()
         {
             this._index++;
@@ -21,8 +22,9 @@ namespace Levels
             }
         }
         
-        public Level(params Thesis[] theses)
+        public Level(float battaryCharge, params Thesis[] theses)
         {
+            this.BattaryCharge = battaryCharge;
             this._theses = theses;
             this._index = 0;
         }
