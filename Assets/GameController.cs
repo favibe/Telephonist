@@ -27,7 +27,7 @@ namespace Game
             else
             {
                 _battery.ChargeLossSpeed = 1;
-                _battery.MaxCharge = _battery.CurrentCharge;
+                _battery.MaxCharge = (int)_current.BattaryCharge;
             }
 
             _gameThread = StartCoroutine(GameThread());

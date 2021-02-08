@@ -14,26 +14,36 @@ namespace Levels
             _levels = new List<Level>()
             {
                 new Level(
-                    0f,
-                    new Thesis("Okay, let's practice!", MessageType.Incoming, 1f),
-                    new Thesis("First of all, type 'abc'. Use Num2 key.", MessageType.Incoming, 1f),
-                    new Thesis("If you were incorrect, use Num0 to delete last symbol.", MessageType.Incoming, 1f),
-                    new Thesis("abc", MessageType.Outgoing),
-                    new Thesis("Good, it's not so difficult!", MessageType.Incoming, 1f),
-                    new Thesis("Now, type 'def', like 'define' but a little shorter.", MessageType.Incoming, 1f),
-                    new Thesis("def", MessageType.Outgoing),
-                    new Thesis("Okay, I supose you understood how it works.", MessageType.Incoming, 2f)
-                    ),
-                new Level(60f,
-                    new Thesis("Finaly type me 'ghi jkl mno pqrs tuvw xyz'", MessageType.Incoming, 1f),
-                    new Thesis("ghi jkl mno pqrs tuvw xyz", MessageType.Outgoing),
-                    new Thesis("I think, authors of TextMe couldn't do it better!", MessageType.Incoming, 2f),
-                    new Thesis("Now, it's time to text some real messages", MessageType.Incoming, 2f),
-                    new Thesis("Good luck!", MessageType.Incoming, 5f)
+                    300,
+                    new Thesis("I'm sorry, did I break your concentration?", MessageType.Incoming, 4f),
+                    new Thesis("I didn't mean to do that.", MessageType.Incoming, 2f),
+                    new Thesis("Please, continue.", MessageType.Incoming, 2f),
+                    new Thesis("You were saying something about best intentions.", MessageType.Incoming, 4f),
+                    new Thesis("What's the matter?", MessageType.Incoming, 2f),
+                    new Thesis("Oh, you were finished!", MessageType.Incoming, 2f),
+                    new Thesis("Well, allow me to retort.", MessageType.Incoming, 2f),
+                    new Thesis("What does Marsellus Wallace look like?", MessageType.Incoming, 2f),
+                    new Thesis("What?", MessageType.Outgoing, 2f),
+                    new Thesis("What country are you from?", MessageType.Incoming, 2f),
+                    new Thesis("What? What?!", MessageType.Outgoing, 2f),
+                    new Thesis("\"What\" ain't no country I've ever heard of.", MessageType.Incoming, 2f),
+                    new Thesis("They speak English in What?", MessageType.Incoming, 2f),
+                    new Thesis("What?", MessageType.Outgoing, 2f),
+                    new Thesis("English, motherfucker, do you speak it?", MessageType.Incoming, 4f),
+                    new Thesis("Yes. Yes!", MessageType.Outgoing, 2f),
+
+                    new Thesis("Then you know what I'm sayin'!", MessageType.Incoming, 2f),
+                    new Thesis("Yes!", MessageType.Outgoing, 2f),
+                    new Thesis("Describe what Marsellus Wallace looks like!", MessageType.Incoming, 2f),
+                    new Thesis("What?", MessageType.Outgoing, 2f),
+                    new Thesis("Say 'what' again.", MessageType.Incoming, 2f),
+                    new Thesis("Say 'what' again, I dare you", MessageType.Incoming, 2f),
+                    new Thesis("I double dare you motherfucker", MessageType.Incoming, 2f),
+                    new Thesis("say what one more Goddamn time!", MessageType.Incoming, 2f)
                     )
             };
-            
-            for(int i = 0; i < _levels.Count - 1; i++)
+
+            for (int i = 0; i < _levels.Count - 1; i++)
             {
                 _levels[i].OnSequenceEnded += onLevelEnded;
             }
@@ -52,7 +62,7 @@ namespace Levels
         }
 
         private static Action _finalLevelEnded;
-        private static int _index; 
+        private static int _index;
         private static List<Level> _levels;
     }
 }
