@@ -9,12 +9,12 @@ namespace Levels
 {
     public static class LevelManager
     {
-        public static void InitializeLevels(Action finalLevelEnded)
+        public static void InitializeLevels(Action onLevelEnded, Action finalLevelEnded)
         {
             _levels = new List<Level>()
             {
                 new Level(
-                    0f,
+                    0f, onLevelEnded,
                     new Thesis("Okay, let's practice!", MessageType.Incoming, 1f),
                     new Thesis("First of all, type 'abc'. Use Num2 key.", MessageType.Incoming, 1f),
                     new Thesis("If you were incorrect, use Num0 to delete last symbol.", MessageType.Incoming, 1f),

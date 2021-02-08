@@ -10,7 +10,6 @@ namespace Levels
 {
     public class Level
     {
-        public event Action OnSequenceEnded;
         public Thesis Current => this._theses?[this._index];
         public float BattaryCharge { get; }
         public void MoveNext()
@@ -18,17 +17,19 @@ namespace Levels
             this._index++;
             if(this._index >= this._theses.Length)
             {
-                this.OnSequenceEnded?.Invoke();
+                this._onSequenceEnded?.Invoke();
             }
         }
         
-        public Level(float battaryCharge, params Thesis[] theses)
+        public Level(float battaryCharge, Action onLevelEnded, params Thesis[] theses)
         {
             this.BattaryCharge = battaryCharge;
             this._theses = theses;
+            this._onSequenceEnded = onLevelEnded;
             this._index = 0;
         }
-
+        
+        private Action _onSequenceEnded;
         private int _index;
         private readonly Thesis[] _theses;
     }
