@@ -15,6 +15,7 @@ namespace Game
         public void Start()
         {
             this._current = LevelManager.Current;
+            _current.Restart();
             //this._current.OnSequenceEnded += LevelComplete;
 
             _sentenceFinished = true;

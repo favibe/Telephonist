@@ -23,6 +23,11 @@ namespace Levels
             this.OnSequenceEnded?.Invoke();
         }
         
+        public void Restart()
+        {
+            _index = 0;
+        }
+        
         public Level(float battaryCharge, params Thesis[] theses)
         {
             this.BattaryCharge = battaryCharge;
