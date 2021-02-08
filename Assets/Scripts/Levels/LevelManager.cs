@@ -31,7 +31,7 @@ namespace Levels
                     new Thesis("Good luck!", MessageType.Incoming, 5f)
                     ),
                 new Level(
-                    420f,
+                    600f,
                     new Thesis("You know what the funniest thing about Europe is?", MessageType.Incoming, 1f),
                     new Thesis("What?", MessageType.Outgoing),
                     new Thesis("It's the little differences.", MessageType.Incoming, 1f),
@@ -61,7 +61,7 @@ namespace Levels
                     new Thesis("Yuck.", MessageType.Outgoing)
                     ),
 				new Level(
-                    300f,
+                    480f,
                     new Thesis("I'm sorry, did I break your concentration?", MessageType.Incoming, 4f),
                     new Thesis("I didn't mean to do that.", MessageType.Incoming, 2f),
                     new Thesis("Please, continue.", MessageType.Incoming, 2f),
@@ -88,7 +88,7 @@ namespace Levels
                     new Thesis("say what one more Goddamn time!", MessageType.Incoming, 2f)
                     ),
                 new Level(
-                    420f,
+                    600f,
                     new Thesis("It's not what you did, son, that angers me so.", MessageType.Incoming, 5f),
                     new Thesis("It's who you did it to.", MessageType.Incoming, 3f),
                     new Thesis("Who? That fucking nobody?", MessageType.Outgoing),
