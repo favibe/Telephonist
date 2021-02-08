@@ -18,7 +18,7 @@ namespace Game
         {
             _inputCodes = new Dictionary<KeyCode, char[]>()
             {
-                [KeyCode.Alpha1] = new char[] { '.', '?', '!', '(', ')' },
+                [KeyCode.Alpha1] = new char[] { '.', '?', '!', '(', ')', '`' },
                 [KeyCode.Alpha2] = new char[] { 'A', 'B', 'C' },
                 [KeyCode.Alpha3] = new char[] { 'D', 'E', 'F' },
                 [KeyCode.Alpha4] = new char[] { 'G', 'H', 'I' },
@@ -26,7 +26,16 @@ namespace Game
                 [KeyCode.Alpha6] = new char[] { 'M', 'N', 'O' },
                 [KeyCode.Alpha7] = new char[] { 'P', 'Q', 'R', 'S' },
                 [KeyCode.Alpha8] = new char[] { 'T', 'U', 'V', 'W' },
-                [KeyCode.Alpha9] = new char[] { 'X', 'Y', 'Z' }
+                [KeyCode.Alpha9] = new char[] { 'X', 'Y', 'Z' },
+                [KeyCode.Keypad1] = new char[] { '.', '?', '!', '(', ')', '`' },
+                [KeyCode.Keypad2] = new char[] { 'A', 'B', 'C' },
+                [KeyCode.Keypad3] = new char[] { 'D', 'E', 'F' },
+                [KeyCode.Keypad4] = new char[] { 'G', 'H', 'I' },
+                [KeyCode.Keypad5] = new char[] { 'J', 'K', 'L' },
+                [KeyCode.Keypad6] = new char[] { 'M', 'N', 'O' },
+                [KeyCode.Keypad7] = new char[] { 'P', 'Q', 'R', 'S' },
+                [KeyCode.Keypad8] = new char[] { 'T', 'U', 'V', 'W' },
+                [KeyCode.Keypad9] = new char[] { 'X', 'Y', 'Z' }
             };
 
             _sb = new StringBuilder();
@@ -52,7 +61,7 @@ namespace Game
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
+            if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
             {
                 if (_currentTime > 0)
                 {
