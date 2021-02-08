@@ -22,9 +22,9 @@ namespace Levels
                     new Thesis("Good, it's not so difficult!", MessageType.Incoming, 1f),
                     new Thesis("Now, type 'def', like 'define' but a little shorter.", MessageType.Incoming, 1f),
                     new Thesis("def", MessageType.Outgoing),
-                    new Thesis("Okay, I supose you understood how it works.", MessageType.Incoming, 1f)
+                    new Thesis("Okay, I supose you understood how it works.", MessageType.Incoming, 2f)
                     ),
-                new Level(0f,
+                new Level(60f,
                     new Thesis("Finaly type me 'ghi jkl mno pqrs tuvw xyz'", MessageType.Incoming, 1f),
                     new Thesis("ghi jkl mno pqrs tuvw xyz", MessageType.Outgoing),
                     new Thesis("I think, authors of TextMe couldn't do it better!", MessageType.Incoming, 2f),
@@ -37,17 +37,18 @@ namespace Levels
             {
                 _levels[i].OnSequenceEnded += onLevelEnded;
             }
+
             _levels[_levels.Count - 1].OnSequenceEnded += finalLevelEnded;
             _index = 0;
 
             _finalLevelEnded = finalLevelEnded;
         }
+
         public static int Index => _index;
         public static Level Current => _levels[_index];
         public static void MoveNext()
         {
             _index++;
-
         }
 
         private static Action _finalLevelEnded;
