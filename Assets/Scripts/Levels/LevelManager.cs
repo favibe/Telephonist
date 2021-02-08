@@ -9,7 +9,7 @@ namespace Levels
 {
     public static class LevelManager
     {
-        public static void InitializeLevels(Action onLevelEnded, Action finalLevelEnded)
+        public static void InitializeLevels(Action finalLevelEnded)
         {
             _levels = new List<Level>()
             {
@@ -32,7 +32,7 @@ namespace Levels
             };
             _index = 0;
 
-            _onLevelsEnded = onLevelEnded;
+            _finalLevelEnded = finalLevelEnded;
         }
 
         public static Level Current => _levels[_index];
@@ -41,13 +41,12 @@ namespace Levels
             _index++;
             if(_index >= _levels.Count)
             {
-                _onLevelsEnded?.Invoke();
+                _finalLevelEnded?.Invoke();
             }
 
         }
 
         private static Action _finalLevelEnded;
-        private static Action _onLevelsEnded;
         private static int _index; 
         private static List<Level> _levels;
     }
