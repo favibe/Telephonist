@@ -49,11 +49,6 @@ namespace Menu
             }
         }
 
-        protected void LoadLevel(int i)
-        {
-            SceneManager.LoadScene(3);
-        }
-
         protected void ReturnToMain()
         {
             SceneManager.LoadScene(3);

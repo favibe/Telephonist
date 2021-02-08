@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Levels;
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -20,7 +22,8 @@ namespace Menu
 
         private void StartNextLevel()
         {
-            //TODO start next level
+            LevelManager.MoveNext();
+            SceneManager.LoadScene(0);
         }
 
 
