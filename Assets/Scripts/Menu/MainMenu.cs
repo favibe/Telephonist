@@ -20,7 +20,7 @@ namespace Menu
                 new MenuState(0, "NewGame", this.StartNewGame),
                 new MenuState(1, "Exit", this.ExitGame)
                 );
-            LevelManager.InitializeLevels(this.WinLevel, this.ReturnToMain);
+            LevelManager.InitializeLevels(this.ReturnToMain);
         }
 
 
