@@ -60,19 +60,8 @@ namespace Levels
                     new Thesis("I seen them do it, man, they fucking drown them in that shit.", MessageType.Incoming, 3f),
                     new Thesis("Yuck.", MessageType.Outgoing)
                     ),
-                new Level(
-                    0f,
-                    new Thesis("Wow, amazing!", MessageType.Incoming, 3f),
-                    new Thesis("If you see this message, you are so cool!", MessageType.Incoming, 3f),
-                    new Thesis("We hope you feel good playing TextMe.", MessageType.Incoming, 5f),
-                    new Thesis("Now rate it please. Type a number from 1 to 10.", MessageType.Incoming, 3f),
-                    new Thesis("10", MessageType.Incoming),
-                    new Thesis("Yeah, thank you so much.", MessageType.Incoming, 7f),
-                    new Thesis("(Yeah, we kmow, you're unable to print another).", MessageType.Incoming, 5f),
-                    new Thesis("Anyway, we are so glad to see anyone finished our game.", MessageType.Incoming, 5f),
-                    new Thesis("Have fun!", MessageType.Incoming, 5f)
 				new Level(
-                    300,
+                    300f,
                     new Thesis("I'm sorry, did I break your concentration?", MessageType.Incoming, 4f),
                     new Thesis("I didn't mean to do that.", MessageType.Incoming, 2f),
                     new Thesis("Please, continue.", MessageType.Incoming, 2f),
@@ -89,7 +78,6 @@ namespace Levels
                     new Thesis("What?", MessageType.Outgoing, 2f),
                     new Thesis("English, motherfucker, do you speak it?", MessageType.Incoming, 4f),
                     new Thesis("Yes. Yes!", MessageType.Outgoing, 2f),
-
                     new Thesis("Then you know what I'm sayin'!", MessageType.Incoming, 2f),
                     new Thesis("Yes!", MessageType.Outgoing, 2f),
                     new Thesis("Describe what Marsellus Wallace looks like!", MessageType.Incoming, 2f),
@@ -98,10 +86,66 @@ namespace Levels
                     new Thesis("Say 'what' again, I dare you", MessageType.Incoming, 2f),
                     new Thesis("I double dare you motherfucker", MessageType.Incoming, 2f),
                     new Thesis("say what one more Goddamn time!", MessageType.Incoming, 2f)
+                    ),
+                new Level(
+                    420f,
+                    new Thesis("It's not what you did, son, that angers me so.", MessageType.Incoming, 5f),
+                    new Thesis("It's who you did it to.", MessageType.Incoming, 3f),
+                    new Thesis("Who? That fucking nobody?", MessageType.Outgoing),
+                    new Thesis("That fuckin' nobody is John Wick. ", MessageType.Incoming, 5f),
+                    new Thesis("He was once an associate of ours. We called him…Baba Yaga.", MessageType.Incoming, 5f),
+                    new Thesis("The Boogeyman?", MessageType.Outgoing),
+                    new Thesis("Well, John wasn't exactly 'The Boogeyman'.", MessageType.Incoming, 5f),
+                    new Thesis("He was the one you sent to kill the fuckin' Boogeyman.", MessageType.Incoming, 5f),
+                    new Thesis("...Oh.", MessageType.Outgoing),
+                    new Thesis("John, is a man of focus. Commitment. Sheer will.", MessageType.Incoming, 5f),
+                    new Thesis("Something you know very little about. I once saw him kill three men in a bar...", MessageType.Incoming, 5f),
+                    new Thesis("...with a pencil. With a fuckin' pencil.", MessageType.Incoming, 3f),
+                    new Thesis("Suddenly one day he asked to leave. It was over a woman, of course.", MessageType.Incoming, 5f),
+                    new Thesis("So I made a deal with him. I gave him an impossible task.", MessageType.Incoming, 5f),
+                    new Thesis("A job no one could have pulled off.", MessageType.Incoming, 3f),
+                    new Thesis("The bodies he buried that day laid the foundation of what we are now.", MessageType.Incoming, 5f),
+                    new Thesis("And then, my son, a few days after his wife died...", MessageType.Incoming, 5f),
+                    new Thesis("...you steal his car, and kill his fuckin' dog.", MessageType.Incoming, 5f),
+                    new Thesis("Father, I can make this right!", MessageType.Outgoing),
+                    new Thesis("Oh? How do you plan that?", MessageType.Incoming, 5f),
+                    new Thesis("By finishing what I started.", MessageType.Outgoing),
+                    new Thesis("What the... did he hear a fucking word I said?", MessageType.Incoming, 5f),
+                    new Thesis("Dad, I can do this! Please!", MessageType.Outgoing),
+                    new Thesis("Iosef. Iosef! Listen.", MessageType.Incoming, 5f),
+                    new Thesis("John will come for you, and I will do nothing because you can do nothing.", MessageType.Incoming, 5f),
+                    new Thesis("So get the fuck out of my sight!", MessageType.Incoming, 5f)
+                    ),
+                new Level(
+                    0f,
+                    new Thesis("Wow, amazing!", MessageType.Incoming, 3f),
+                    new Thesis("If you see this message, you are so cool!", MessageType.Incoming, 3f),
+                    new Thesis("We hope you feel good playing TextMe.", MessageType.Incoming, 5f),
+                    new Thesis("Now rate it please. Type a number from 1 to 10.", MessageType.Incoming, 3f),
+                    new Thesis("10", MessageType.Incoming),
+                    new Thesis("Yeah, thank you so much.", MessageType.Incoming, 7f),
+                    new Thesis("(Yeah, we kmow, you're unable to print another).", MessageType.Incoming, 5f),
+                    new Thesis("Anyway, we are so glad to see anyone finished our game.", MessageType.Incoming, 5f),
+                    new Thesis("Have fun!", MessageType.Incoming, 5f)
                     )
                 /*
 
+                Viggo Tarasov: 
+Iosef Tarasov: 
+Viggo Tarasov: 
+Iosef Tarasov: ""?
+Viggo Tarasov:  
+Iosef Tarasov: 
+[In the background, John takes a sledgehammer to his basement, and as Viggo talks, he unearths his hitman equipment that he had buried in concrete]
 
+Viggo Tarasov:  …     … 
+Iosef Tarasov: 
+Viggo Tarasov: 
+Iosef Tarasov: 
+Viggo Tarasov: [turns to his advisor, Avi] 
+Iosef Tarsov: [in Russian] 
+[irritated yet scared, Viggo pulls his son close and talks in his ear]
+Viggo Tarasov:   
 
 
 
